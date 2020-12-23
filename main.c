@@ -9,9 +9,9 @@ int		main(void)
 	int		fd;
 	char	*line;
 
-	fd = open("../Prueba_gnl/bible.txt", O_RDONLY);
+	fd = open("./hola.txt", O_RDONLY);
 	printf("\nValor de fd: %d\n\n", fd);
-	printf("%d: ", get_next_line(fd, NULL));
+	printf("Valor del gnl: %d: ", get_next_line(fd, NULL));
 	while ((x = get_next_line(fd, NULL)) == 1)
 	{
 		printf("\nGNL: %d, linea : %s", x, line);
