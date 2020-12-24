@@ -32,6 +32,7 @@ char	*ft_space_line(char *aux, char **line, int ret)
 	unsigned	int		i;
 
 	i = 0;
+	printf("\nHOLA\n");
 	while (aux[i])
 	{
 		if (aux[i] == '\n')
