@@ -32,13 +32,13 @@ char	*ft_space_line(char *aux, char **line, int ret)
 	unsigned	int		i;
 
 	i = 0;
-	printf("\nHOLA\n");
 	while (aux[i])
 	{
 		if (aux[i] == '\n')
 			break ;
 		i++;
 	}
+	aux[i] = '\0';
 	if (i < ft_strlen(aux))
 	{
 		*line = ft_substr(aux, 0, i);
@@ -52,6 +52,7 @@ char	*ft_space_line(char *aux, char **line, int ret)
 		*line = aux;
 		aux = NULL;
 	}
+	// printf("\nHOLA\n");
 	return (aux);
 }
 
@@ -61,6 +62,7 @@ char	*resize_memory(char *buf, char *aux)
 
 	if (aux)
 	{
+		// printf("\nAUX: %s HHH\n", aux);
 		temp = ft_strjoin(aux, buf);
 		free(aux);
 		aux = ft_strdup(temp);
@@ -68,6 +70,7 @@ char	*resize_memory(char *buf, char *aux)
 	}
 	else
 		aux = ft_strdup(buf);
+	printf("\nAUX: %s HHH\n", aux);
 	return (aux);
 }
 
@@ -85,7 +88,10 @@ int		get_next_line(int fd, char **line)
 		buf[ret] = '\0';
 		aux[fd] = resize_memory(buf, aux[fd]);
 		if (ft_strchr(buf, '\n'))
+		{
+			// printf("\nHHH\n");
 			break ;
+		}
 	}
 	if (ret <= 0 && !aux[fd])
 	{
